@@ -147,6 +147,10 @@ class HomeState extends ConsumerState<Home> {
                     color: Colors.red, borderRadius: BorderRadius.circular(8)),
                 child: Dismissible(
                   key: ValueKey(todos.data[i].id),
+                  behavior: HitTestBehavior.translucent,
+                  direction: DismissDirection.startToEnd,
+                  background: const Icon(Icons.airline_seat_recline_extra, color: Colors.white,),
+                  secondaryBackground: const Icon(Icons.airline_seat_recline_extra, color: Colors.black,),
                   onDismissed: (_) {
                     ref.read(todoListProvider.notifier).remove(todos.data[i]);
                     ScaffoldMessenger.of(context).showSnackBar(
